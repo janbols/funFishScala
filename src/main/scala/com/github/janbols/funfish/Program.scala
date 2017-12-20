@@ -3,9 +3,10 @@ package com.github.janbols.funfish
 import com.github.janbols.funfish.limited._
 import com.github.janbols.funfish.rendering.CanvasRendering
 import org.scalajs.dom
-import org.scalajs.dom.html.Canvas
+import org.scalajs.dom.html.{Anchor, Canvas, Div}
 
 import scala.reflect.ClassTag
+import scala.scalajs.js.Date
 import scala.util.Try
 
 object Program {
@@ -31,7 +32,31 @@ object Program {
   }
 
 
+  def setPage(divElement: String, pageNr: Int): Unit = {
+    for {
+      div <- getElement[Div](divElement)
+      a <- createElement[Anchor]("a")
+    } yield {
+      div.appendChild(a)
+      a.href = s"index.html?page=$pageNr&ts=${new Date().valueOf()}"
+      a.text = s"to page $pageNr"
+    }
+  }
+
+  def setTitle(pageNr: Int): Unit = {
+    for {
+      div <- getElement[Div]("title")
+    } yield {
+      div.textContent = s"page $pageNr"
+    }
+  }
+
   def main(args: Array[String]): Unit = {
+    val page = getPage(dom.window.location.search).getOrElse(1)
+    if (page > 1) setPage("prev", page - 1)
+    setPage("next", page + 1)
+    setTitle(page)
+
     getElement[Canvas]("myCanvas").fold(
       errorMsg => println(s"Could not find canvas. Error is ${errorMsg.getMessage}"),
       canvas => {
@@ -42,10 +67,25 @@ object Program {
     )
   }
 
+  private def getPage(search: String): Try[Int] = {
+    val baseIx = search.indexOf("page=")
+    val offset = "page=".length
+    Try(
+      search.drop(baseIx + offset).takeWhile(_.isDigit).toInt
+    )
+  }
+
   private def getElement[T: ClassTag](elementId: String): Try[T] = Try(
     dom.document.querySelector(s"#$elementId") match {
       case elem: T => elem
       case other => throw new RuntimeException(s"Element with ID $elementId is $other")
+    }
+  )
+
+  private def createElement[T: ClassTag](tagName: String): Try[T] = Try(
+    dom.document.createElement(tagName) match {
+      case elem: T => elem
+      case other => throw new RuntimeException(s"Element $tagName could not be created: is $other")
     }
   )
 
