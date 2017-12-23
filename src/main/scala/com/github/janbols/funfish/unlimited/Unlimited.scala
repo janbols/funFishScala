@@ -70,6 +70,22 @@ object Unlimited {
 
   def quartet(p: LensPicture, q: LensPicture, r: LensPicture, s: LensPicture): LensPicture = above(beside(p, q), beside(r, s))
 
+
+  def quartet2(depth: Int)(p: LensPicture): LensPicture = {
+    def qquartet(n: Int)(p: LensPicture): LensPicture = {
+      val p2 = if (n == 1) p else qquartet(n - 1)(p)
+      quartet(p2, p2, p2, p2)
+    }
+
+    val p2 = p |> rehue
+    val pNW = p
+    val pNE = p |> rehue |> turn
+    val pSW = p |> rehue |> turn |> turn |> turn
+    val pSE = p |> rehue |> turn |> turn
+    val q = quartet(pNW, pNE, pSW, pSE)
+    qquartet(depth)( q)
+  }
+
   val blank: LensPicture = { _ => Seq() }
 
   def side(tt: LensPicture => LensPicture, hueSW: LensPicture => LensPicture, hueSE: LensPicture => LensPicture)(n: Int, p: LensPicture): LensPicture = {
@@ -103,7 +119,7 @@ object Unlimited {
         besideRatio(1, 2)(v, beside(w, x))))
 
 
-  def squareLimit(n: Int, p: LensPicture): LensPicture = {
+  def squareLimit(n: Int)( p: LensPicture): LensPicture = {
     val cornerNW = corner1(n, p)
     val cornerSW = corner2(n, p) |> turn
     val cornerSE = cornerNW |> turn |> turn
@@ -130,7 +146,7 @@ object Unlimited {
   }
 
 
-  def aboveBand(n: Int)(first: LensPicture, middle: LensPicture, last: LensPicture): LensPicture  = bandify(aboveRatio)(n)(first, middle, last)
+  def aboveBand(n: Int)(first: LensPicture, middle: LensPicture, last: LensPicture): LensPicture = bandify(aboveRatio)(n)(first, middle, last)
 
   def besideBand(n: Int)(first: LensPicture, middle: LensPicture, last: LensPicture): LensPicture = bandify(besideRatio)(n)(first, middle, last)
 
@@ -145,8 +161,6 @@ object Unlimited {
     val band = aboveBand(3)(topband, midband, botband)
     band
   }
-
-
 
 
 }

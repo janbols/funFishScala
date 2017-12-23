@@ -1,8 +1,7 @@
 package com.github.janbols.funfish.rendering
 
-import com.github.janbols.funfish.{Circle, Curve, FillStyle, Line, Path, Polygon, Shape, StrokeStyle, Style, StyleColor}
 import com.github.janbols.funfish.StyleColor.StyleColor
-import com.github.janbols.funfish.limited._
+import com.github.janbols.funfish.{Circle, Curve, FillStyle, Line, Path, Polygon, Shape, StrokeStyle, Style, StyleColor}
 import org.scalajs.dom.CanvasRenderingContext2D
 import org.scalajs.dom.html.Canvas
 
@@ -54,7 +53,7 @@ object CanvasRendering extends Rendering[Canvas] {
         }
         case Curve(p1, p2, p3, p4) => {
           context.beginPath()
-          context.moveTo(p1.x, adjustHeight(p2.y))
+          context.moveTo(p1.x, adjustHeight(p1.y))
           context.bezierCurveTo(p2.x, adjustHeight(p2.y), p3.x, adjustHeight(p3.y), p4.x, adjustHeight(p4.y))
           applyStyle(style.stroke.orElse(Option(blackStrokeStyle)), style.fill)(context)
         }

@@ -1,8 +1,15 @@
 package com.github.janbols.funfish
 
+import com.github.janbols.funfish.limited.Fishy.hendersonFishShapes
+import com.github.janbols.funfish.limited.Letter._
 import com.github.janbols.funfish.limited.Picture.Picture
 import com.github.janbols.funfish.limited._
 import com.github.janbols.funfish.rendering.CanvasRendering
+import com.github.janbols.funfish.unlimited.Fishier.fishShapes
+import com.github.janbols.funfish.unlimited.Hue.Hue
+import com.github.janbols.funfish.unlimited.LensPicture.LensPicture
+import com.github.janbols.funfish.unlimited.Lizard.lizardShapes
+import com.github.janbols.funfish.unlimited._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Anchor, Canvas, Div}
 
@@ -18,10 +25,23 @@ object Program {
   private val defaultWidth = 800
   private val defaultHeight = 800
 
-  private val pages: Map[Int, (Renderer) => Unit] = Map(
-    1 -> draw(fittedBox, Picture(Letter.f))
-    , 2 -> draw(fittedBox, Limited.corner(4)(Picture(Letter.h)))
-  )
+  private val pages: Map[Int, (Renderer) => Unit] = Seq(
+    draw(fittedBox, Picture(Letter.f)) _
+    , draw(fittedBox, Limited.nonet(Picture(h), Picture(e), Picture(n), Picture(d1, d2), Picture(e), Picture(r1, r2), Picture(s), Picture(o1, o2), Picture(h))) _
+    , draw(expandedBox, Picture(hendersonFishShapes: _*)) _
+    , draw(expandedBox, Limited.ttile(Picture(hendersonFishShapes: _*))) _
+    , draw(fittedBox, Limited.squareLimit(3)(Picture(hendersonFishShapes: _*))) _
+    , draw(bandBox, Limited.egg(3, 16)(Picture(hendersonFishShapes: _*))) _
+    , draw(expandedBox, Hue.Blackish, LensPicture(fishShapes: _*)) _
+    , draw(expandedBox, Hue.Greyish, LensPicture(fishShapes: _*)) _
+    , draw(expandedBox, Hue.Whiteish, LensPicture(fishShapes: _*)) _
+    , draw(expandedBox, Hue.Greyish, LensPicture(lizardShapes: _*)) _
+    , draw(fittedBox, Hue.Blackish, Unlimited.quartet2(3)(LensPicture(lizardShapes: _*))) _
+    , draw(bandBox, Hue.Hollow, Unlimited.egg(3, 3)(LensPicture(fishShapes: _*))) _
+    , draw(fittedBox, Hue.Greyish, Unlimited.squareLimit(3)(LensPicture(fishShapes: _*))) _
+  ).zipWithIndex
+    .map(t => (t._2 + 1, t._1))
+    .toMap
 
 
   private def fittedBox(width: Int, height: Int): Box = Box(
@@ -36,12 +56,26 @@ object Program {
     Vector(0.0, height / 2.0)
   )
 
+  private def bandBox(width: Int, height: Int): Box = Box(
+    Vector(100.0, 100.0),
+    Vector(3200.0, 0.0),
+    Vector(0.0, 600.0)
+  )
+
   private def draw(width: Int, height: Int, boxFactory: (Int, Int) => Box, picture: Picture)(renderer: Renderer): Unit = {
     boxFactory(width, height) |> picture |> renderer(width, height)
   }
 
   private def draw(boxFactory: (Int, Int) => Box, picture: Picture)(renderer: Renderer): Unit = {
-    boxFactory(defaultWidth, defaultHeight) |> picture |> renderer(defaultWidth, defaultHeight)
+    draw(defaultWidth, defaultHeight, boxFactory, picture)(renderer)
+  }
+
+  private def draw(width: Int, height: Int, boxFactory: (Int, Int) => Box, hue: Hue, lensPicture: LensPicture)(renderer: Renderer): Unit = {
+    Lens(boxFactory(width, height), hue) |> lensPicture |> renderer(width, height)
+  }
+
+  private def draw(boxFactory: (Int, Int) => Box, hue: Hue, lensPicture: LensPicture)(renderer: Renderer): Unit = {
+    draw(defaultWidth, defaultHeight, boxFactory, hue, lensPicture)(renderer)
   }
 
 

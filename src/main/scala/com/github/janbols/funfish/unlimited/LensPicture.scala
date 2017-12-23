@@ -3,11 +3,11 @@ package com.github.janbols.funfish.unlimited
 import java.lang.Double.min
 
 import com.github.janbols.funfish
-import com.github.janbols.funfish.limited.Picture.Picture
 import com.github.janbols.funfish.StyleColor.StyleColor
+import com.github.janbols.funfish.limited.Picture.Picture
 import com.github.janbols.funfish.limited._
 import com.github.janbols.funfish.unlimited.Hue.Hue
-import com.github.janbols.funfish.{Circle, Curve, FillStyle, Line, Path, Polygon, Shape, StrokeStyle, Style, StyleColor, limited}
+import com.github.janbols.funfish.{Circle, Curve, FillStyle, Line, Path, Polygon, Shape, StrokeStyle, Style, StyleColor}
 
 import scala.Option.empty
 
@@ -16,19 +16,16 @@ object LensPicture extends LensPictureFactory {
 
   type LensPicture = Lens => Seq[(Shape, Style)]
 
-  //  private def lift(f: Box => Box, lp: LensPicture): LensPicture = { lens: Lens =>
-  //    lens.copy(box = f(lens.box)) |> lp
-  //  }
-  private def toPicture(lens: Lens)(lp: LensPicture): Picture = box => lens.copy(box = box) |> lp
+  private def toPicture(lens: Lens)(p: LensPicture): Picture = box => lens.copy(box = box) |> p
 
-  private def lift(f: Picture => Picture)(lp: LensPicture): LensPicture = { lens: Lens =>
+  private def lift(f: Picture => Picture)(p: LensPicture): LensPicture = { lens: Lens =>
     val toP = toPicture(lens)(_)
-    lens.box |> (lp |> toP |> f)
+    lens.box |> (p |> toP |> f)
   }
 
-  private def lift(f: (Picture, Picture) => Picture)(lp1: LensPicture, lp2: LensPicture): LensPicture = { lens: Lens =>
+  private def lift(f: (Picture, Picture) => Picture)(p1: LensPicture, p2: LensPicture): LensPicture = { lens: Lens =>
     val toP = toPicture(lens)(_)
-    lens.box |> f(toP(lp1), toP(lp2))
+    lens.box |> f(toP(p1), toP(p2))
   }
 
   def turn(p: LensPicture): LensPicture = lift(Picture.turn _)(p)
@@ -37,14 +34,13 @@ object LensPicture extends LensPictureFactory {
 
   def toss(p: LensPicture): LensPicture = lift(Picture.toss _)(p)
 
-  def besideRatio(m: Int, n: Int)(lp1: LensPicture, lp2: LensPicture): LensPicture = lift(Picture.besideRatio(m, n)(_,_))(lp1, lp2)
-  def beside(lp1: LensPicture, lp2: LensPicture): LensPicture = besideRatio(1, 1)(lp1, lp2)
+  def besideRatio(m: Int, n: Int)(p1: LensPicture, p2: LensPicture): LensPicture = lift(Picture.besideRatio(m, n)(_,_))(p1, p2)
+  def beside(p1: LensPicture, p2: LensPicture): LensPicture = besideRatio(1, 1)(p1, p2)
 
-  def aboveRatio(m: Int, n: Int)(lp1: LensPicture, lp2: LensPicture): LensPicture = lift(Picture.aboveRatio(m, n)(_,_))(lp1, lp2)
+  def aboveRatio(m: Int, n: Int)(p1: LensPicture, p2: LensPicture): LensPicture = lift(Picture.aboveRatio(m, n)(_,_))(p1, p2)
+  def above(p1: LensPicture, p2: LensPicture): LensPicture = aboveRatio(1, 1)( p1, p2)
 
-  def above(lp1: LensPicture, lp2: LensPicture): LensPicture = aboveRatio(1, 1)( lp1, lp2)
-
-  def over(lp1: LensPicture, lp2: LensPicture): LensPicture = lift(Picture.over _)(lp1, lp2)
+  def over(p1: LensPicture, p2: LensPicture): LensPicture = lift(Picture.over _)(p1, p2)
 
   def rehue(p: LensPicture): LensPicture = lens => lens |> Lens.rehue |> p
 
@@ -54,8 +50,6 @@ object LensPicture extends LensPictureFactory {
     shapes.map(mapMaybeNamedShape(lens))
       .filter(_.nonEmpty)
       .map(_.get)
-
-
 }
 
 
@@ -141,10 +135,10 @@ trait LensPictureFactory extends PictureFactory{
         val style2 =
           if (name == "egg-eye-inner" && min(box.b.size(), box.c.size()) < 200.0) style.copy(stroke = Option(StrokeStyle(2.0 * sw, StyleColor.Black)))
           else style
-        (funfish.Path(m(start), beziers.map(mapBezier(m))), style2)
+        (Path(m(start), beziers.map(mapBezier(m))), style2)
       }
-      case Line(start, end) => (funfish.Line(m(start), m(end)), getLineStyle(name, sw, hue))
-      case Circle(center, radius) => (funfish.Circle(m(center), m(radius) - box.a), getCircleStyle(name, sw, hue))
+      case Line(start, end) => (Line(m(start), m(end)), getLineStyle(name, sw, hue))
+      case Circle(center, radius) => (Circle(m(center), m(radius) - box.a), getCircleStyle(name, sw, hue))
     }
   }
 
