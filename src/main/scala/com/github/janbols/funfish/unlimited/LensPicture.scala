@@ -2,7 +2,6 @@ package com.github.janbols.funfish.unlimited
 
 import java.lang.Double.min
 
-import com.github.janbols.funfish
 import com.github.janbols.funfish.StyleColor.StyleColor
 import com.github.janbols.funfish.limited.Picture.Picture
 import com.github.janbols.funfish.limited._
@@ -74,9 +73,11 @@ trait LensPictureFactory extends PictureFactory{
     }
 
 
-  protected def getDefaultStyle(name: String, sw: Double, hue: Hue): Style = Style(Option(StrokeStyle(sw, getDefaultColor(name, hue))), empty)
+  protected def getDefaultStyle(name: String, sw: Double, hue: Hue): Style =
+    Style(Option(StrokeStyle(sw, getDefaultColor(name, hue))), empty)
 
-  protected def getCircleStyle(name: String, sw: Double, hue: Hue): Style = Style(empty, Option(FillStyle(getDefaultColor(name, hue))))
+  protected def getCircleStyle(name: String, sw: Double, hue: Hue): Style =
+    Style(empty, Option(FillStyle(getDefaultColor(name, hue))))
 
   protected def isInnerEye(name: String): Boolean = name.endsWith("-inner")
 
@@ -113,13 +114,8 @@ trait LensPictureFactory extends PictureFactory{
 
   protected def getPathStyle(name: String, sw: Double, hue: Hue): Style = hue match {
     case Hue.Hollow => Style(Option(getEyeLiner(sw, hue)), if (isInnerEye(name)) Option(FillStyle(StyleColor.Black)) else empty)
-    case _ => funfish.Style(if (isOuterEye(name)) Option(getEyeLiner(sw, hue)) else empty, Option(FillStyle(getColor(name, hue))))
+    case _ => Style(if (isOuterEye(name)) Option(getEyeLiner(sw, hue)) else empty, Option(FillStyle(getColor(name, hue))))
   }
-
-
-  protected def getLineStyle(name: String, sw: Double, hue: Hue): Style =
-    if (name == "control-point") Style(Option(StrokeStyle(0.5, StyleColor.Red)), empty)
-    else getDefaultStyle(name, sw, hue)
 
 
   protected def mapNamedShape(lens: Lens)(namedShape: (String, Shape)): (Shape, Style) = {
@@ -137,7 +133,7 @@ trait LensPictureFactory extends PictureFactory{
           else style
         (Path(m(start), beziers.map(mapBezier(m))), style2)
       }
-      case Line(start, end) => (Line(m(start), m(end)), getLineStyle(name, sw, hue))
+      case Line(start, end) => (Line(m(start), m(end)), getDefaultStyle(name, sw, hue))
       case Circle(center, radius) => (Circle(m(center), m(radius) - box.a), getCircleStyle(name, sw, hue))
     }
   }

@@ -2,8 +2,7 @@ package com.github.janbols.funfish.limited
 
 import java.lang.Double.min
 
-import com.github.janbols.funfish
-import com.github.janbols.funfish.{Bezier, Box, Circle, Curve, Line, Path, Polygon, Shape, StrokeStyle, Style, StyleColor, Vector, limited}
+import com.github.janbols.funfish.{Bezier, Box, Circle, Curve, Line, Path, Polygon, Shape, StrokeStyle, Style, StyleColor, Vector}
 
 import scala.Option.empty
 
@@ -54,19 +53,19 @@ trait PictureFactory {
     case Polygon(ps) => Polygon(ps.map(m))
     case Curve(p1, p2, p3, p4) => Curve(m(p1), m(p2), m(p3), m(p4))
     case Path(start, beziers) => {
-      funfish.Path(m(start), beziers.map(mapBezier(m)))
+      Path(m(start), beziers.map(mapBezier(m)))
     }
-    case Line(lineStart, lineEnd) => funfish.Line(m(lineStart), m(lineEnd))
+    case Line(lineStart, lineEnd) => Line(m(lineStart), m(lineEnd))
     case Circle(center, radius) => {
       val cNew = m(center)
       val rNew = m(radius) - cNew
-      funfish.Circle(cNew, rNew)
+      Circle(cNew, rNew)
     }
   }
 
   protected def getStrokeWidth(box: Box): Double = min(box.b.size(), box.c.size()) / 80
 
-  protected def mapBezier(m: Vector => Vector)(b: Bezier): Bezier = funfish.Bezier(m(b.controlPoint1), m(b.controlPoint2), m(b.endPoint))
+  protected def mapBezier(m: Vector => Vector)(b: Bezier): Bezier = Bezier(m(b.controlPoint1), m(b.controlPoint2), m(b.endPoint))
 
   protected def getStyle(box: Box): Style = Style(Option(StrokeStyle(getStrokeWidth(box), StyleColor.Black)), empty)
 
