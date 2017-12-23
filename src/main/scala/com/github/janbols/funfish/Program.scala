@@ -30,14 +30,14 @@ object Program {
     , draw(fittedBox, Limited.nonet(Picture(h), Picture(e), Picture(n), Picture(d1, d2), Picture(e), Picture(r1, r2), Picture(s), Picture(o1, o2), Picture(h))) _
     , draw(expandedBox, Picture(hendersonFishShapes: _*)) _
     , draw(expandedBox, Limited.ttile(Picture(hendersonFishShapes: _*))) _
+    , draw(1200, 800, bandBox, Limited.egg(3, 16)(Picture(hendersonFishShapes: _*))) _
     , draw(fittedBox, Limited.squareLimit(3)(Picture(hendersonFishShapes: _*))) _
-    , draw(bandBox, Limited.egg(3, 16)(Picture(hendersonFishShapes: _*))) _
     , draw(expandedBox, Hue.Blackish, LensPicture(fishShapes: _*)) _
     , draw(expandedBox, Hue.Greyish, LensPicture(fishShapes: _*)) _
     , draw(expandedBox, Hue.Whiteish, LensPicture(fishShapes: _*)) _
     , draw(expandedBox, Hue.Greyish, LensPicture(lizardShapes: _*)) _
-    , draw(fittedBox, Hue.Blackish, Unlimited.quartet2(3)(LensPicture(lizardShapes: _*))) _
-    , draw(bandBox, Hue.Hollow, Unlimited.egg(3, 3)(LensPicture(fishShapes: _*))) _
+    , draw(expandedBox, Hue.Blackish, Unlimited.quartet2(3)(LensPicture(lizardShapes: _*))) _
+    , draw(1200, 800, bandBox, Hue.Hollow, Unlimited.egg(3, 16)(LensPicture(fishShapes: _*))) _
     , draw(fittedBox, Hue.Greyish, Unlimited.squareLimit(3)(LensPicture(fishShapes: _*))) _
   ).zipWithIndex
     .map(t => (t._2 + 1, t._1))

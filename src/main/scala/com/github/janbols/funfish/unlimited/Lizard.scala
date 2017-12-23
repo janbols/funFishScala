@@ -127,14 +127,10 @@ object Lizard {
 
   private def namedShapes(name: String, shapes: Seq[Shape]): Seq[(String, Shape)] = shapes.map ((name, _))
 
-  private val mainSpine = namedShapes("secondary", mainSpineCurves)
-  private val lizardEyesOuter = namedShapes("secondary", lizardEyeOuterCircles)
-  private val lizardEyesInner = namedShapes("primary", lizardEyeInnerCircles)
-
   val lizardShapes = Seq(
     ("primary", lizardPath)
   ) ++
-    mainSpine ++
-    lizardEyesOuter ++
-    lizardEyesInner
+    namedShapes("secondary", mainSpineCurves) ++
+    namedShapes("secondary", lizardEyeOuterCircles)++
+    namedShapes("primary", lizardEyeInnerCircles)
 }

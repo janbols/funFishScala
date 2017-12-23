@@ -215,14 +215,12 @@ object Fishier {
     )
   )
 
-  private val fishyLines = fishySpineCurves.map(("secondary", _))
-
   val fishShapes = Seq(
     ("primary", fishyPath),
     ("eye-outer", leftEyePath),
     ("eye-outer", rightEyePath),
     ("eye-inner", innerLeftEyePath),
     ("eye-inner", innerRightEyePath)
-  ) ++ fishyLines
+  ) ++ fishySpineCurves.map(("secondary", _))
 
 }

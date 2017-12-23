@@ -77,11 +77,10 @@ object Unlimited {
       quartet(p2, p2, p2, p2)
     }
 
-    val p2 = p |> rehue
     val pNW = p
     val pNE = p |> rehue |> turn
     val pSW = p |> rehue |> turn |> turn |> turn
-    val pSE = p |> rehue |> turn |> turn
+    val pSE = p |> turn |> turn
     val q = quartet(pNW, pNE, pSW, pSE)
     qquartet(depth)( q)
   }
