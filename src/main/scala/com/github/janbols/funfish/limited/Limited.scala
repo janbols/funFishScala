@@ -58,20 +58,13 @@ object Limited {
   def besideBand(n: Int)(first: Picture, middle: Picture, last: Picture): Picture = bandify(besideRatio)(n)(first, middle, last)
 
   def egg(n: Int, m: Int)(p: Picture): Picture = {
-    val cornerNW = corner(n)(p)
-    val cornerSW = turn(cornerNW)
-    val cornerSE = turn(cornerSW)
-    val cornerNE = turn(cornerSE)
     val sideN = side(n)(p)
-    val sideW = turn(sideN)
-    val sideS = turn(sideW)
-    val sideE = turn(sideS)
+    val sideS = sideN |> turn |> turn
     val center = utile(p)
     val topband = besideBand(m)(sideN, sideN, sideN)
     val midband = besideBand(m)(center, center, center)
     val botband = besideBand(m)(sideS, sideS, sideS)
-    val band = aboveBand(3)(topband, midband, botband)
-    band
+    aboveBand(n)(topband, midband, botband)
   }
 
 
