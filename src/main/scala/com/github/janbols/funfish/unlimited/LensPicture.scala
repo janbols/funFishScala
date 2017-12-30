@@ -52,11 +52,16 @@ object LensPicture extends LensPictureFactory {
 trait LensPictureFactory extends PictureFactory {
 
   protected def getDefaultColor(name: String, hue: Hue): StyleColor =
-    if ("secondary"==name) {
+    if ("secondary" == name) {
       hue match {
         case Hue.Blackish => StyleColor.White
         case Hue.Greyish => StyleColor.White
         case Hue.Whiteish => StyleColor.Black
+
+        case Hue.Redish => StyleColor.Beige
+        case Hue.Brownish => StyleColor.Beige
+        case Hue.Beige => StyleColor.Red
+
         case Hue.Hollow => StyleColor.Black
       }
     } else {
@@ -64,6 +69,11 @@ trait LensPictureFactory extends PictureFactory {
         case Hue.Blackish => StyleColor.Black
         case Hue.Greyish => StyleColor.Grey
         case Hue.Whiteish => StyleColor.White
+
+        case Hue.Redish => StyleColor.Red
+        case Hue.Brownish => StyleColor.Brown
+        case Hue.Beige => StyleColor.Beige
+
         case Hue.Hollow => StyleColor.White
       }
     }
@@ -97,6 +107,25 @@ trait LensPictureFactory extends PictureFactory {
       case n if isInnerEye(n) => StyleColor.Black
       case _ => StyleColor.Black
     }
+
+    case Hue.Redish => name match {
+      case "primary" => StyleColor.Red
+      case n if isOuterEye(n) => StyleColor.Beige
+      case n if isInnerEye(n) => StyleColor.Red
+      case _ => StyleColor.White
+    }
+    case Hue.Brownish => name match {
+      case "primary" => StyleColor.Brown
+      case n if isOuterEye(n) => StyleColor.Beige
+      case n if isInnerEye(n) => StyleColor.Brown
+      case _ => StyleColor.White
+    }
+    case Hue.Beige => name match {
+      case "primary" => StyleColor.Beige
+      case n if isOuterEye(n) => StyleColor.Beige
+      case n if isInnerEye(n) => StyleColor.Red
+      case _ => StyleColor.Red
+    }
   }
 
 
@@ -117,9 +146,9 @@ trait LensPictureFactory extends PictureFactory {
     val Lens(box, hue) = lens
     val m = mapper(box)(_)
     val sw = getStrokeWidth(box)
-    (mapShape(m)(shape ), shape match {
-      case _:Path => getPathStyle(name, sw, hue)
-      case _:Circle => getCircleStyle(name, sw, hue)
+    (mapShape(m)(shape), shape match {
+      case _: Path => getPathStyle(name, sw, hue)
+      case _: Circle => getCircleStyle(name, sw, hue)
       case _ => getDefaultStyle(name, sw, hue)
     })
   }

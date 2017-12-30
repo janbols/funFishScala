@@ -4,7 +4,7 @@ import com.github.janbols.funfish.StyleColor.StyleColor
 
 object StyleColor extends Enumeration {
   type StyleColor = Value
-  val Black, Grey, White, Red, Green, Yellow = Value
+  val Black, Grey, White, Red, Brown, Beige, Green, Yellow = Value
 }
 
 case class StrokeStyle(strokeWidth: Double, strokeColor: StyleColor)

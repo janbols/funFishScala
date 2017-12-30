@@ -13,7 +13,9 @@ object CanvasRendering extends Rendering[Canvas] {
     case StyleColor.Black => "black"
     case StyleColor.Grey => "grey"
     case StyleColor.White => "white"
-    case StyleColor.Red => "red"
+    case StyleColor.Red => "orangeRed"
+    case StyleColor.Brown => "tan"
+    case StyleColor.Beige => "beige"
     case StyleColor.Green => "green"
     case StyleColor.Yellow => "yellow"
   }

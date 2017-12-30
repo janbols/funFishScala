@@ -30,17 +30,18 @@ object Program {
     , draw(fittedBox, Limited.nonet(Picture(h), Picture(e), Picture(n), Picture(d1, d2), Picture(e), Picture(r1, r2), Picture(s), Picture(o1, o2), Picture(h))) _
     , draw(expandedBox, Picture(hendersonFishShapes: _*)) _
     , draw(expandedBox, Limited.ttile(Picture(hendersonFishShapes: _*))) _
-    , draw(1200, 800, bandBox, Limited.egg(3, 16)(Picture(hendersonFishShapes: _*))) _
+    , draw(bandBox, Limited.egg(3, 16)(Picture(hendersonFishShapes: _*)), 1200, 800) _
     , draw(fittedBox, Limited.squareLimit(3)(Picture(hendersonFishShapes: _*))) _
-    , draw(expandedBox, Hue.Blackish, LensPicture(fishShapes: _*)) _
-    , draw(expandedBox, Hue.Greyish, LensPicture(fishShapes: _*)) _
-    , draw(expandedBox, Hue.Whiteish, LensPicture(fishShapes: _*)) _
-    , draw(expandedBox, Hue.Greyish, LensPicture(lizardShapes: _*)) _
-    , draw(expandedBox, Hue.Blackish, Unlimited.quartet2(3)(LensPicture(lizardShapes: _*))) _
-    , draw(1200, 800, bandBox, Hue.Hollow, Unlimited.egg(3, 16)(LensPicture(fishShapes: _*))) _
-    , draw(fittedBox, Hue.Greyish, Unlimited.squareLimit(3)(LensPicture(fishShapes: _*))) _
+    , drawLens(expandedBox, Hue.Blackish, LensPicture(fishShapes: _*)) _
+    , drawLens(expandedBox, Hue.Greyish, LensPicture(fishShapes: _*)) _
+    , drawLens(expandedBox, Hue.Whiteish, LensPicture(fishShapes: _*)) _
+    , drawLens(expandedBox, Hue.Greyish, LensPicture(lizardShapes: _*)) _
+    , drawLens(fittedBox, Hue.Blackish, Unlimited.quartet2(3)(LensPicture(lizardShapes: _*))) _
+    , drawLens(bandBox, Hue.Hollow, Unlimited.egg(3, 16)(LensPicture(fishShapes: _*)), 1200, 800) _
+    , drawLens(fittedBox, Hue.Greyish, Unlimited.squareLimit(3)(LensPicture(fishShapes: _*))) _
+    , drawLens(fittedBox, Hue.Brownish, Unlimited.squareLimit(3)(LensPicture(fishShapes: _*))) _
   ).zipWithIndex
-    .map(t => (t._2 + 1, t._1))
+    .map(_.swap)
     .toMap
 
 
@@ -62,27 +63,18 @@ object Program {
     Vector(0.0, 600.0)
   )
 
-  private def draw(width: Int, height: Int, boxFactory: (Int, Int) => Box, picture: Picture)(renderer: Renderer): Unit = {
+  private def draw(boxFactory: (Int, Int) => Box, picture: Picture, width: Int = defaultWidth, height: Int = defaultHeight)(renderer: Renderer): Unit = {
     boxFactory(width, height) |> picture |> renderer(width, height)
   }
 
-  private def draw(boxFactory: (Int, Int) => Box, picture: Picture)(renderer: Renderer): Unit = {
-    draw(defaultWidth, defaultHeight, boxFactory, picture)(renderer)
-  }
-
-  private def draw(width: Int, height: Int, boxFactory: (Int, Int) => Box, hue: Hue, lensPicture: LensPicture)(renderer: Renderer): Unit = {
+  private def drawLens(boxFactory: (Int, Int) => Box, hue: Hue, lensPicture: LensPicture, width: Int = defaultWidth, height: Int = defaultHeight)(renderer: Renderer): Unit = {
     Lens(boxFactory(width, height), hue) |> lensPicture |> renderer(width, height)
   }
-
-  private def draw(boxFactory: (Int, Int) => Box, hue: Hue, lensPicture: LensPicture)(renderer: Renderer): Unit = {
-    draw(defaultWidth, defaultHeight, boxFactory, hue, lensPicture)(renderer)
-  }
-
 
   def main(args: Array[String]): Unit = {
     val page = getPage(dom.window.location.search).getOrElse(1)
     if (page > 1) setPage(getElement[Div]("prev"), page - 1)
-    setPage(getElement[Div]("next"), page + 1)
+    if (page < pages.size) setPage(getElement[Div]("next"), page + 1)
     setTitle(s"page $page")
 
     getElement[Canvas]("myCanvas").fold(
@@ -90,7 +82,7 @@ object Program {
       canvas => {
         val renderer: Renderer = CanvasRendering.render(canvas)
 
-        pages.get(page).foreach(_ (renderer))
+        pages.get(page - 1).foreach(_ (renderer))
       }
     )
   }
