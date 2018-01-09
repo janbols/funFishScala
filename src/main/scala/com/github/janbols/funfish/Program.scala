@@ -27,7 +27,7 @@ object Program {
 
   private val pages: Map[Int, (Renderer) => Unit] = Seq(
     draw(fittedBox, Picture(Letter.f)) _
-    , draw(fittedBox, Limited.nonet(Picture(h), Picture(e), Picture(n), Picture(d1, d2), Picture(e), Picture(r1, r2), Picture(s), Picture(o1, o2), Picture(h))) _
+    , draw(fittedBox, Limited.nonet(Picture(h), Picture(e), Picture(n), Picture(d1, d2), Picture(e), Picture(r1, r2), Picture(s), Picture(o1, o2), Picture(n))) _
     , draw(expandedBox, Picture(hendersonFishShapes: _*)) _
     , draw(expandedBox, Limited.ttile(Picture(hendersonFishShapes: _*))) _
     , draw(bandBox, Limited.egg(3, 16)(Picture(hendersonFishShapes: _*)), 1200, 800) _

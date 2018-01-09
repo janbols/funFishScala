@@ -21,9 +21,9 @@ object CanvasRendering extends Rendering[Canvas] {
   }
 
   private def applyStyle(strokeStyle: Option[StrokeStyle], fillStyle: Option[FillStyle])(context: CanvasRenderingContext2D): Unit = {
-    strokeStyle.foreach(ss => context.strokeStyle = getColor(ss.strokeColor))
-    strokeStyle.foreach(ss => context.lineWidth = ss.strokeWidth)
-    fillStyle.foreach(fs => context.fillStyle = getColor(fs.fillColor))
+    strokeStyle.foreach(ss => context.strokeStyle = getColor(ss.color))
+    strokeStyle.foreach(ss => context.lineWidth = ss.width)
+    fillStyle.foreach(fs => context.fillStyle = getColor(fs.color))
     strokeStyle.foreach(_ => context.stroke())
     fillStyle.foreach(_ => context.fill())
   }
@@ -35,8 +35,6 @@ object CanvasRendering extends Rendering[Canvas] {
       case other => throw new RuntimeException(s"getContext(2d) returned $other")
     }
   )
-
-  private val blackStrokeStyle: StrokeStyle = StrokeStyle(1.0, StyleColor.Black)
 
   def render(canvas: Canvas)(width: Int, height: Int)(styledShapes: Seq[(Shape, Style)]): Unit = {
 
@@ -51,13 +49,11 @@ object CanvasRendering extends Rendering[Canvas] {
           context.moveTo(first.x, adjustHeight(first.y))
           points.drop(1).foreach(p => context.lineTo(p.x, adjustHeight(p.y)))
           context.closePath()
-          applyStyle(style.stroke.orElse(Option(blackStrokeStyle)), style.fill)(context)
         }
         case Curve(p1, p2, p3, p4) => {
           context.beginPath()
           context.moveTo(p1.x, adjustHeight(p1.y))
           context.bezierCurveTo(p2.x, adjustHeight(p2.y), p3.x, adjustHeight(p3.y), p4.x, adjustHeight(p4.y))
-          applyStyle(style.stroke.orElse(Option(blackStrokeStyle)), style.fill)(context)
         }
         case Path(start, beziers) => {
           context.beginPath()
@@ -68,22 +64,18 @@ object CanvasRendering extends Rendering[Canvas] {
               b.endPoint.x, adjustHeight(b.endPoint.y))
           )
           context.closePath()
-          applyStyle(style.stroke, style.fill)(context)
         }
         case Line(start, end) => {
           context.beginPath()
           context.moveTo(start.x, adjustHeight(start.y))
-          context.lineTo(start.x, adjustHeight(start.y))
-          applyStyle(style.stroke.orElse(Option(blackStrokeStyle)), style.fill)(context)
+          context.lineTo(end.x, adjustHeight(end.y))
         }
         case Circle(center, radius) => {
           context.beginPath()
           context.arc(center.x, adjustHeight(center.y), radius.size(), 0.0, 2 * Math.PI)
-          applyStyle(
-            style.stroke.orElse(Option(blackStrokeStyle)),
-            style.fill.orElse(Option(FillStyle(StyleColor.Yellow))))(context)
         }
       }
+      applyStyle(style.stroke, style.fill)(context)
     }
 
     getContext2D(canvas).fold(e => println(e.getMessage), { context =>

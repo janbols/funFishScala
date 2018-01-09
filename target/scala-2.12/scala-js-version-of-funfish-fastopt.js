@@ -1848,7 +1848,7 @@ $c_Lcom_github_janbols_funfish_Program$.prototype.init___ = (function() {
       return $m_Lcom_github_janbols_funfish_Program$().fittedBox__p1__I__I__Lcom_github_janbols_funfish_Box(width$3, height$3)
     })
   })(this));
-  var eta$1$2 = $m_Lcom_github_janbols_funfish_limited_Limited$().nonet__F1__F1__F1__F1__F1__F1__F1__F1__F1__F1($m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().h$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().e$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().n$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().d1$1, $m_Lcom_github_janbols_funfish_limited_Letter$().d2$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().e$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().r1$1, $m_Lcom_github_janbols_funfish_limited_Letter$().r2$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().s$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().o1$1, $m_Lcom_github_janbols_funfish_limited_Letter$().o2$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().h$1])));
+  var eta$1$2 = $m_Lcom_github_janbols_funfish_limited_Limited$().nonet__F1__F1__F1__F1__F1__F1__F1__F1__F1__F1($m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().h$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().e$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().n$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().d1$1, $m_Lcom_github_janbols_funfish_limited_Letter$().d2$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().e$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().r1$1, $m_Lcom_github_janbols_funfish_limited_Letter$().r2$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().s$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().o1$1, $m_Lcom_github_janbols_funfish_limited_Letter$().o2$1])), $m_Lcom_github_janbols_funfish_limited_Picture$().apply__sc_Seq__F1(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_Lcom_github_janbols_funfish_limited_Letter$().n$1])));
   var eta$2$2 = this.defaultWidth$1;
   var eta$3$2 = this.defaultHeight$1;
   var jsx$15 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4, eta$0$2$1, eta$1$2$1, eta$2$2$1, eta$3$2$1) {
@@ -6036,8 +6036,7 @@ function $m_Lcom_github_janbols_funfish_limited_Picture$() {
 }
 /** @constructor */
 function $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$() {
-  $c_O.call(this);
-  this.blackStrokeStyle$1 = null
+  $c_O.call(this)
 }
 $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype = new $h_O();
 $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype.constructor = $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$;
@@ -6047,26 +6046,24 @@ function $h_Lcom_github_janbols_funfish_rendering_CanvasRendering$() {
 }
 $h_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype = $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype;
 $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype.init___ = (function() {
-  $n_Lcom_github_janbols_funfish_rendering_CanvasRendering$ = this;
-  this.blackStrokeStyle$1 = new $c_Lcom_github_janbols_funfish_StrokeStyle().init___D__s_Enumeration$Value(1.0, $m_Lcom_github_janbols_funfish_StyleColor$().Black$2);
   return this
 });
 $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V = (function(strokeStyle, fillStyle, context) {
   if ((!strokeStyle.isEmpty__Z())) {
     var arg1 = strokeStyle.get__O();
     var ss = $as_Lcom_github_janbols_funfish_StrokeStyle(arg1);
-    var s = $m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().getColor__p1__s_Enumeration$Value__T(ss.strokeColor$1);
+    var s = $m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().getColor__p1__s_Enumeration$Value__T(ss.color$1);
     context.strokeStyle = s
   };
   if ((!strokeStyle.isEmpty__Z())) {
     var arg1$1 = strokeStyle.get__O();
     var ss$3 = $as_Lcom_github_janbols_funfish_StrokeStyle(arg1$1);
-    context.lineWidth = ss$3.strokeWidth$1
+    context.lineWidth = ss$3.width$1
   };
   if ((!fillStyle.isEmpty__Z())) {
     var arg1$2 = fillStyle.get__O();
     var fs = $as_Lcom_github_janbols_funfish_FillStyle(arg1$2);
-    var s$1 = $m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().getColor__p1__s_Enumeration$Value__T(fs.fillColor$1);
+    var s$1 = $m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().getColor__p1__s_Enumeration$Value__T(fs.color$1);
     context.fillStyle = s$1
   };
   if ((!strokeStyle.isEmpty__Z())) {
@@ -6120,9 +6117,7 @@ $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype.drawShape$1_
         context$1.lineTo(p.x$1, $this.adjustHeight$1__p1__D__I__D(p.y$1, height$1$1))
       })
     })(this, height$1, context)));
-    context.closePath();
-    var this$1 = style.stroke$1;
-    this.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V((this$1.isEmpty__Z() ? $m_s_Option$().apply__O__s_Option($m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().blackStrokeStyle$1) : this$1), style.fill$1, context)
+    context.closePath()
   } else if ($is_Lcom_github_janbols_funfish_Curve(shape)) {
     var x3 = $as_Lcom_github_janbols_funfish_Curve(shape);
     var p1 = x3.point1$1;
@@ -6131,44 +6126,37 @@ $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype.drawShape$1_
     var p4 = x3.point4$1;
     context.beginPath();
     context.moveTo(p1.x$1, this.adjustHeight$1__p1__D__I__D(p1.y$1, height$1));
-    context.bezierCurveTo(p2.x$1, this.adjustHeight$1__p1__D__I__D(p2.y$1, height$1), p3.x$1, this.adjustHeight$1__p1__D__I__D(p3.y$1, height$1), p4.x$1, this.adjustHeight$1__p1__D__I__D(p4.y$1, height$1));
-    var this$2 = style.stroke$1;
-    this.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V((this$2.isEmpty__Z() ? $m_s_Option$().apply__O__s_Option($m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().blackStrokeStyle$1) : this$2), style.fill$1, context)
+    context.bezierCurveTo(p2.x$1, this.adjustHeight$1__p1__D__I__D(p2.y$1, height$1), p3.x$1, this.adjustHeight$1__p1__D__I__D(p3.y$1, height$1), p4.x$1, this.adjustHeight$1__p1__D__I__D(p4.y$1, height$1))
   } else if ($is_Lcom_github_janbols_funfish_Path(shape)) {
     var x4 = $as_Lcom_github_janbols_funfish_Path(shape);
     var start = x4.start$1;
     var beziers = x4.beziers$1;
     context.beginPath();
     context.moveTo(start.x$1, this.adjustHeight$1__p1__D__I__D(start.y$1, height$1));
-    beziers.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4, height$1$2, context$2) {
+    beziers.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2, height$1$2, context$2) {
       return (function(b$2) {
         var b = $as_Lcom_github_janbols_funfish_Bezier(b$2);
-        context$2.bezierCurveTo(b.controlPoint1$1.x$1, this$4.adjustHeight$1__p1__D__I__D(b.controlPoint1$1.y$1, height$1$2), b.controlPoint2$1.x$1, this$4.adjustHeight$1__p1__D__I__D(b.controlPoint2$1.y$1, height$1$2), b.endPoint$1.x$1, this$4.adjustHeight$1__p1__D__I__D(b.endPoint$1.y$1, height$1$2))
+        context$2.bezierCurveTo(b.controlPoint1$1.x$1, this$2.adjustHeight$1__p1__D__I__D(b.controlPoint1$1.y$1, height$1$2), b.controlPoint2$1.x$1, this$2.adjustHeight$1__p1__D__I__D(b.controlPoint2$1.y$1, height$1$2), b.endPoint$1.x$1, this$2.adjustHeight$1__p1__D__I__D(b.endPoint$1.y$1, height$1$2))
       })
     })(this, height$1, context)));
-    context.closePath();
-    this.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V(style.stroke$1, style.fill$1, context)
+    context.closePath()
   } else if ($is_Lcom_github_janbols_funfish_Line(shape)) {
     var x5 = $as_Lcom_github_janbols_funfish_Line(shape);
     var start$2 = x5.lineStart$1;
+    var end = x5.lineEnd$1;
     context.beginPath();
     context.moveTo(start$2.x$1, this.adjustHeight$1__p1__D__I__D(start$2.y$1, height$1));
-    context.lineTo(start$2.x$1, this.adjustHeight$1__p1__D__I__D(start$2.y$1, height$1));
-    var this$3 = style.stroke$1;
-    this.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V((this$3.isEmpty__Z() ? $m_s_Option$().apply__O__s_Option($m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().blackStrokeStyle$1) : this$3), style.fill$1, context)
+    context.lineTo(end.x$1, this.adjustHeight$1__p1__D__I__D(end.y$1, height$1))
   } else if ($is_Lcom_github_janbols_funfish_Circle(shape)) {
     var x6 = $as_Lcom_github_janbols_funfish_Circle(shape);
     var center = x6.center$1;
     var radius = x6.radius$1;
     context.beginPath();
-    context.arc(center.x$1, this.adjustHeight$1__p1__D__I__D(center.y$1, height$1), radius.size__D(), 0.0, 6.283185307179586);
-    var this$5 = style.stroke$1;
-    var jsx$1 = (this$5.isEmpty__Z() ? $m_s_Option$().apply__O__s_Option($m_Lcom_github_janbols_funfish_rendering_CanvasRendering$().blackStrokeStyle$1) : this$5);
-    var this$6 = style.fill$1;
-    this.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V(jsx$1, (this$6.isEmpty__Z() ? $m_s_Option$().apply__O__s_Option(new $c_Lcom_github_janbols_funfish_FillStyle().init___s_Enumeration$Value($m_Lcom_github_janbols_funfish_StyleColor$().Yellow$2)) : this$6), context)
+    context.arc(center.x$1, this.adjustHeight$1__p1__D__I__D(center.y$1, height$1), radius.size__D(), 0.0, 6.283185307179586)
   } else {
     throw new $c_s_MatchError().init___O(shape)
-  }
+  };
+  this.applyStyle__p1__s_Option__s_Option__Lorg_scalajs_dom_raw_CanvasRenderingContext2D__V(style.stroke$1, style.fill$1, context)
 });
 $c_Lcom_github_janbols_funfish_rendering_CanvasRendering$.prototype.adjustHeight$1__p1__D__I__D = (function(y, height$1) {
   return (height$1 - y)
@@ -10320,7 +10308,7 @@ $c_Lcom_github_janbols_funfish_Box.prototype.$classData = $d_Lcom_github_janbols
 /** @constructor */
 function $c_Lcom_github_janbols_funfish_FillStyle() {
   $c_O.call(this);
-  this.fillColor$1 = null
+  this.color$1 = null
 }
 $c_Lcom_github_janbols_funfish_FillStyle.prototype = new $h_O();
 $c_Lcom_github_janbols_funfish_FillStyle.prototype.constructor = $c_Lcom_github_janbols_funfish_FillStyle;
@@ -10340,8 +10328,8 @@ $c_Lcom_github_janbols_funfish_FillStyle.prototype.equals__O__Z = (function(x$1)
     return true
   } else if ($is_Lcom_github_janbols_funfish_FillStyle(x$1)) {
     var FillStyle$1 = $as_Lcom_github_janbols_funfish_FillStyle(x$1);
-    var x = this.fillColor$1;
-    var x$2 = FillStyle$1.fillColor$1;
+    var x = this.color$1;
+    var x$2 = FillStyle$1.color$1;
     return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
   } else {
     return false
@@ -10350,7 +10338,7 @@ $c_Lcom_github_janbols_funfish_FillStyle.prototype.equals__O__Z = (function(x$1)
 $c_Lcom_github_janbols_funfish_FillStyle.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
-      return this.fillColor$1;
+      return this.color$1;
       break
     }
     default: {
@@ -10368,8 +10356,8 @@ $c_Lcom_github_janbols_funfish_FillStyle.prototype.hashCode__I = (function() {
 $c_Lcom_github_janbols_funfish_FillStyle.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
-$c_Lcom_github_janbols_funfish_FillStyle.prototype.init___s_Enumeration$Value = (function(fillColor) {
-  this.fillColor$1 = fillColor;
+$c_Lcom_github_janbols_funfish_FillStyle.prototype.init___s_Enumeration$Value = (function(color) {
+  this.color$1 = color;
   return this
 });
 function $is_Lcom_github_janbols_funfish_FillStyle(obj) {
@@ -10398,8 +10386,8 @@ $c_Lcom_github_janbols_funfish_FillStyle.prototype.$classData = $d_Lcom_github_j
 /** @constructor */
 function $c_Lcom_github_janbols_funfish_StrokeStyle() {
   $c_O.call(this);
-  this.strokeWidth$1 = 0.0;
-  this.strokeColor$1 = null
+  this.width$1 = 0.0;
+  this.color$1 = null
 }
 $c_Lcom_github_janbols_funfish_StrokeStyle.prototype = new $h_O();
 $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.constructor = $c_Lcom_github_janbols_funfish_StrokeStyle;
@@ -10419,9 +10407,9 @@ $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.equals__O__Z = (function(x$
     return true
   } else if ($is_Lcom_github_janbols_funfish_StrokeStyle(x$1)) {
     var StrokeStyle$1 = $as_Lcom_github_janbols_funfish_StrokeStyle(x$1);
-    if ((this.strokeWidth$1 === StrokeStyle$1.strokeWidth$1)) {
-      var x = this.strokeColor$1;
-      var x$2 = StrokeStyle$1.strokeColor$1;
+    if ((this.width$1 === StrokeStyle$1.width$1)) {
+      var x = this.color$1;
+      var x$2 = StrokeStyle$1.color$1;
       return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
     } else {
       return false
@@ -10433,11 +10421,11 @@ $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.equals__O__Z = (function(x$
 $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
-      return this.strokeWidth$1;
+      return this.width$1;
       break
     }
     case 1: {
-      return this.strokeColor$1;
+      return this.color$1;
       break
     }
     default: {
@@ -10450,13 +10438,13 @@ $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.toString__T = (function() {
 });
 $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.hashCode__I = (function() {
   var acc = (-889275714);
-  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().doubleHash__D__I(this.strokeWidth$1));
-  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.strokeColor$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().doubleHash__D__I(this.width$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.color$1));
   return $m_sr_Statics$().finalizeHash__I__I__I(acc, 2)
 });
-$c_Lcom_github_janbols_funfish_StrokeStyle.prototype.init___D__s_Enumeration$Value = (function(strokeWidth, strokeColor) {
-  this.strokeWidth$1 = strokeWidth;
-  this.strokeColor$1 = strokeColor;
+$c_Lcom_github_janbols_funfish_StrokeStyle.prototype.init___D__s_Enumeration$Value = (function(width, color) {
+  this.width$1 = width;
+  this.color$1 = color;
   return this
 });
 $c_Lcom_github_janbols_funfish_StrokeStyle.prototype.productIterator__sc_Iterator = (function() {
