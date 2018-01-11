@@ -3,6 +3,7 @@ package com.github.janbols.funfish
 case class Box(a: Vector, b: Vector, c: Vector)
 
 object Box {
+
   def turn(box: Box): Box = Box(box.a + box.b, box.c, -box.b)
 
   def flip(box: Box): Box = Box(box.a + box.b, -box.b, box.c)

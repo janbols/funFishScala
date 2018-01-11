@@ -10,4 +10,14 @@ package object funfish {
   }
 
 
+  def times[A](n:Int)(f: A=>A): A=>A = n match {
+    case 0 => identity
+    case _ => f andThen times(n-1)(f)
+  }
+
+  def toSeq[A](t: (A, A)): Seq[A] = Seq(t._1, t._2)
+
+
+
+
 }
