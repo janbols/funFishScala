@@ -30,10 +30,10 @@ object Program {
     , sideModel
     , cornerModel
     , squareLimitModel
-    , hueFishModel
-    , hueSquareLimitModel
-    , hueLizardModel
-    , hueLizardsModel
+//    , hueFishModel
+//    , hueSquareLimitModel
+//    , hueLizardModel
+//    , hueLizardsModel
   ).zipWithIndex
     .map(_.swap)
     .toMap

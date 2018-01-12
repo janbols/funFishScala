@@ -25,6 +25,8 @@ object LensPicture extends LensPictureFactory {
     lens.box |> f(toP(p1), toP(p2))
   }
 
+  /*
+
   def turn(p: LensPicture): LensPicture = lift(Picture.turn _)(p)
 
   def flip(p: LensPicture): LensPicture = lift(Picture.flip _)(p)
@@ -200,7 +202,7 @@ object LensPicture extends LensPictureFactory {
     val band = aboveBand(3)(topband, midband, botband)
     band
   }
-
+  */
 
 
   def apply(shapes: (String, Shape)*): LensPicture = lens =>
